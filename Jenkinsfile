@@ -1,7 +1,7 @@
 pipeline {
     agent any
     triggers {
-        pollSCM('H/1 * * * *') // Poll GitHub every minute
+        pollSCM('* * * * *') // Poll GitHub every minute
     }
     stages {
         stage('Checkout') {
@@ -26,7 +26,7 @@ pipeline {
             steps { echo 'Stage 6: Deploy to staging environment'; bat 'echo "Deploying to staging..."' }
         }
         stage('Notification') {
-            steps { echo 'Stage 7: Send notification to team'; bat 'echo "Sending notification...."' }
+            steps { echo 'Stage 7: Send notification to team'; bat 'echo "Sending message...."' }
         }
     }
 }
